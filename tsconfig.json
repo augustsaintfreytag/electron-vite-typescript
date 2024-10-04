@@ -1,0 +1,20 @@
+{
+	"compilerOptions": {
+		"target": "ES6",
+		"module": "CommonJS",
+		"allowJs": false,
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"strict": true,
+		"sourceMap": true,
+		"outDir": "build",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"experimentalDecorators": true,
+		"baseUrl": ".",
+		"paths": {
+			"~/*": ["./src/*"]
+		}
+	},
+	"reflection": true
+}
