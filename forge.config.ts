@@ -7,9 +7,9 @@ import { VitePlugin } from "@electron-forge/plugin-vite"
 import { FusesPlugin } from "@electron-forge/plugin-fuses"
 import { FuseV1Options, FuseVersion } from "@electron/fuses"
 
-const config: ForgeConfig = {
+const config: ForgeConfig = Object.freeze({
 	packagerConfig: {
-		asar: true
+		asar: false
 	},
 	rebuildConfig: {},
 	makers: [new MakerSquirrel({}), new MakerZIP({}, ["darwin"]), new MakerRpm({}), new MakerDeb({})],
@@ -49,6 +49,6 @@ const config: ForgeConfig = {
 			[FuseV1Options.OnlyLoadAppFromAsar]: true
 		})
 	]
-}
+})
 
 export default config
