@@ -8,7 +8,10 @@ const projectRoot = resolvePath(__dirname)
 export default defineConfig({
 	plugins: [
 		deepkitType({
-			tsConfig: joinPath(projectRoot, "tsconfig.deepkit.json")
+			tsConfig: joinPath(projectRoot, "tsconfig.deepkit.json"),
+			compilerOptions: {
+				inlineSourceMap: true
+			}
 		})
 	],
 	resolve: {
