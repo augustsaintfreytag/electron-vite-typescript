@@ -1,4 +1,4 @@
-import { serialize, integer, UUID } from "@deepkit/type"
+import { serialize, integer, UUID, deserialize, deserializeType } from "@deepkit/type"
 import { v4 as randomUUID } from "uuid"
 
 class Savefile {
@@ -17,5 +17,7 @@ export function demo() {
 	])
 
 	const encodedSavefile = serialize<Savefile>(savefile)
+	const decodedSaveFile = deserialize<Savefile>(encodedSavefile)
+
 	debugger
 }
