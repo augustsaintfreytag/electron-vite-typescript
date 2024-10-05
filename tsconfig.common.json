@@ -1,0 +1,20 @@
+{
+	"compilerOptions": {
+		"composite": true,
+		"incremental": true,
+		"allowJs": false,
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"strict": true,
+		"inlineSourceMap": true,
+		"outDir": "build",
+		"resolveJsonModule": true,
+		"experimentalDecorators": true,
+		"baseUrl": ".",
+		"paths": {
+			"~/*": ["./src/*"]
+		}
+	},
+	"exclude": ["node_modules"],
+	"reflection": true
+}

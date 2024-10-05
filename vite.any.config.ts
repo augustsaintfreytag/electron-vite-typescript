@@ -1,24 +1,22 @@
 import { defineConfig } from "vite"
 import { deepkitType } from "@deepkit/vite"
-import { resolve } from "path"
-import { ModuleKind } from "typescript"
-import commonJS from "@rollup/plugin-commonjs"
+import { resolve as resolvePath, join as joinPath } from "path"
+
+const projectRoot = resolvePath(__dirname)
 
 // https://vitejs.dev/config
 export default defineConfig({
 	plugins: [
 		deepkitType({
-			compilerOptions: {
-				module: ModuleKind.ESNext
-			}
-		}),
-		commonJS({
-			transformMixedEsModules: true
+			tsConfig: joinPath(projectRoot, "tsconfig.deepkit.json")
 		})
 	],
 	resolve: {
 		alias: {
-			"~": resolve(__dirname, "src")
+			"~": joinPath(projectRoot, "src")
 		}
+	},
+	build: {
+		sourcemap: "inline"
 	}
 })

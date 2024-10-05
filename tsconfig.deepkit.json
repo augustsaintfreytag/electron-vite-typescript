@@ -2,7 +2,7 @@
 	"extends": "./tsconfig.common.json",
 	"compilerOptions": {
 		"target": "ES2022",
-		"module": "CommonJS",
+		"module": "ES6",
 		"moduleResolution": "node"
 	},
 	"reflection": true
