@@ -26,7 +26,7 @@
  * ```
  */
 
-import { demo } from "~/demo"
+import { demo } from "~/demo-with-deepkit"
 import "./index.css"
 
 setTimeout(() => {
