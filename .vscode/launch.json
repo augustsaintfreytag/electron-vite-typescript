@@ -12,9 +12,6 @@
 			"runtimeArgs": ["electron-forge", "start", "--", "--remote-debugging-port=9229"],
 			"sourceMaps": true,
 			"internalConsoleOptions": "openOnSessionStart",
-			"env": {
-				"NODE_ENV": "development"
-			},
 			"outputCapture": "std"
 		},
 		{
