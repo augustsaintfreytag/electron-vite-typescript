@@ -1,23 +1,18 @@
-import { serialize, integer, UUID, deserialize, deserializeType } from "@deepkit/type"
+import { serialize, integer, UUID, deserialize, deserializeType, ReceiveType } from "@deepkit/type"
 import { v4 as randomUUID } from "uuid"
+import { makeDemoSavefile, Savefile } from "~/data-provider"
 
-class Savefile {
-	constructor(public numberOfPaperclips: integer, public factories: PaperclipFactory[]) {}
-}
-
-class PaperclipFactory {
-	constructor(public id: UUID, public name: string, public productionPerDay: integer) {}
+function deserializeModelFromRaw<Type>(rawObject: object, type?: ReceiveType<Type>): Type | undefined {
+	return deserialize<Type>(rawObject)
 }
 
 export function demo() {
-	const savefile = new Savefile(412_000, [
-		new PaperclipFactory(randomUUID(), "Poland 01", 1_000),
-		new PaperclipFactory(randomUUID(), "Poland 02", 1_800),
-		new PaperclipFactory(randomUUID(), "Latvia 01", 800)
-	])
+	const savefile = makeDemoSavefile()
 
-	const encodedSavefile = serialize<Savefile>(savefile)
-	const decodedSaveFile = deserialize<Savefile>(encodedSavefile)
+	const encodedSavefileObject = serialize<Savefile>(savefile)
+	const encodedSavefileData = JSON.stringify(encodedSavefileObject)
+	const decodedSaveFileObject = JSON.parse(encodedSavefileData)
+	const decodedSaveFile = deserializeModelFromRaw<Savefile>(encodedSavefileObject)
 
 	debugger
 }
