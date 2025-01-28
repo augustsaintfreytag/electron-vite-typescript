@@ -15,7 +15,8 @@
  * flag:
  *
  * ```
- *  // Create the browser window.
+ *  Create the browser window.
+ *
  *  mainWindow = new BrowserWindow({
  *    width: 800,
  *    height: 600,
@@ -26,9 +27,7 @@
  * ```
  */
 
-import { demo } from "~/demo-with-deepkit"
+import { demo } from "~/demo-zod"
 import "./index.css"
 
-setTimeout(() => {
-	demo()
-}, 1000)
+demo()

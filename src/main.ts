@@ -12,12 +12,13 @@ const createWindow = () => {
 		width: 800,
 		height: 600,
 		webPreferences: {
+			webSecurity: false
 			// preload: path.join(__dirname, "preload.js")
 		}
 	})
 
 	// Open the DevTools.
-	// mainWindow.webContents.openDevTools()
+	mainWindow.webContents.openDevTools()
 
 	// and load the index.html of the app.
 	if (MAIN_WINDOW_VITE_DEV_SERVER_URL) {
