@@ -17,10 +17,10 @@
     dot-prop "^5.1.1"
     to-fast-properties "^3.0.1"
 
-"@deepkit/type-compiler@^1.0.1-alpha.154":
-  version "1.0.1-alpha.154"
-  resolved "https://registry.yarnpkg.com/@deepkit/type-compiler/-/type-compiler-1.0.1-alpha.154.tgz#914f1f4945e67cc06ad61ff5c30cb9a28b2a1604"
-  integrity sha512-gzq0rH9PZ5asEjIQozuqclGn5rj/6R6pSOwqCx/KpsrutfHu2QRFDZExHz4BO7RSbPpivn3PR0EisiEaOopOGg==
+"@deepkit/type-compiler@^1.0.1-alpha.155":
+  version "1.0.1-alpha.155"
+  resolved "https://registry.yarnpkg.com/@deepkit/type-compiler/-/type-compiler-1.0.1-alpha.155.tgz#b485c04f29c1a0c48728eb7da5424921f1abb73e"
+  integrity sha512-f203TkV/wVDSQNpGPomkB16TbrmjL4R3TJeJ8uYYXk0it9tdN6sVpuMoe2ouP7UzQVaV4Si75fWTbQsSQeuxiQ==
   dependencies:
     "@deepkit/type-spec" "^1.0.1-alpha.116"
     "@marcj/ts-clone-node" "^2.0.0"
@@ -36,20 +36,20 @@
   resolved "https://registry.yarnpkg.com/@deepkit/type-spec/-/type-spec-1.0.1-alpha.116.tgz#b75b8cb55b0bd7678ee793f53390f3da57cfa89d"
   integrity sha512-8LDtbhLlZTKJGocdmpB/Td5nor5Pm90i4TuZbRIJEAofuEFAXM80tT7xZZLl9AFtGJaATZd7Lv0jViwspXKvxg==
 
-"@deepkit/type@^1.0.1-alpha.154":
-  version "1.0.1-alpha.154"
-  resolved "https://registry.yarnpkg.com/@deepkit/type/-/type-1.0.1-alpha.154.tgz#8928e6b29db6b31d97629ca5165dad556798ad5f"
-  integrity sha512-7mq79elJXDpbfZPp9TshWOLCdGNN5aKsvyZTVlgIG8RLx4mmcKVgv4N3Q+YFdxoqLm43CBykkXAp6ArmWR1lzQ==
+"@deepkit/type@^1.0.1-alpha.155":
+  version "1.0.1-alpha.155"
+  resolved "https://registry.yarnpkg.com/@deepkit/type/-/type-1.0.1-alpha.155.tgz#7d090beb354cbb1ccef6a8c2ace9172050d2955c"
+  integrity sha512-hVzR+D5yz2D9Bld/YE4bw8eqv7w21pV1XGqaQJWxKjaZjWiy5HVS7K1WQGzwU1ZbhDepnTlBzG6jmIM1iYn9eQ==
   dependencies:
     "@deepkit/type-spec" "^1.0.1-alpha.116"
     "@types/uuid" "^8.3.0"
     buffer "^5.2.1"
     uuid "^8.3.2"
 
-"@deepkit/vite@^1.0.1-alpha.154":
-  version "1.0.1-alpha.154"
-  resolved "https://registry.yarnpkg.com/@deepkit/vite/-/vite-1.0.1-alpha.154.tgz#a038224eb235a8718173033ef531b741e291ff95"
-  integrity sha512-7cIvP1MSqVjFcFdq1XgmjRkzfEUfNWArNMmJh/6MHZTKtWo94isDVABT4AdbiYgLAyBMOQGdIlgKO/XP3YVyvA==
+"@deepkit/vite@^1.0.1-alpha.155":
+  version "1.0.1-alpha.155"
+  resolved "https://registry.yarnpkg.com/@deepkit/vite/-/vite-1.0.1-alpha.155.tgz#5eefbce766b194c104dde7c26c691f76233dbeaf"
+  integrity sha512-j5vQ1PVrMQRhZjMtpCIY8evHeLRE21ev2fkCLap/qN7v4djlNjQE+8wKQkAx9d+w0SCT+GGioI8tz1h3MMUvog==
   dependencies:
     "@rollup/pluginutils" "^5.0.2"
 
@@ -5107,3 +5107,8 @@ yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
+
+zod@^3.24.1:
+  version "3.24.1"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-3.24.1.tgz#27445c912738c8ad1e9de1bea0359fa44d9d35ee"
+  integrity sha512-muH7gBL9sI1nciMZV67X5fTKKBLtwpZ5VBp1vsOQzj1MhrBZ4wlVCm3gedKZWLp0Oyel8sIGfeiz54Su+OVT+A==

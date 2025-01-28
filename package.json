@@ -11,9 +11,16 @@
 		"publish": "electron-forge publish",
 		"lint": "eslint --ext .ts,.tsx ."
 	},
+	"dependencies": {
+		"@deepkit/core": "^1.0.1-alpha.154",
+		"@deepkit/type": "^1.0.1-alpha.155",
+		"electron-squirrel-startup": "^1.0.1",
+		"uuid": "^10.0.0",
+		"zod": "^3.24.1"
+	},
 	"devDependencies": {
-		"@deepkit/type-compiler": "^1.0.1-alpha.154",
-		"@deepkit/vite": "^1.0.1-alpha.154",
+		"@deepkit/type-compiler": "^1.0.1-alpha.155",
+		"@deepkit/vite": "^1.0.1-alpha.155",
 		"@electron-forge/cli": "^7.5.0",
 		"@electron-forge/maker-deb": "^7.5.0",
 		"@electron-forge/maker-rpm": "^7.5.0",
@@ -39,11 +46,5 @@
 		"name": "August Saint Freytag",
 		"email": "me@augustfreytag.com"
 	},
-	"license": "MIT",
-	"dependencies": {
-		"@deepkit/core": "^1.0.1-alpha.154",
-		"@deepkit/type": "^1.0.1-alpha.154",
-		"electron-squirrel-startup": "^1.0.1",
-		"uuid": "^10.0.0"
-	}
+	"license": "MIT"
 }
