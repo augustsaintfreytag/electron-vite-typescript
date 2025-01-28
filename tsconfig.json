@@ -3,7 +3,8 @@
 	"compilerOptions": {
 		"target": "ES2022",
 		"module": "CommonJS",
-		"moduleResolution": "node"
+		"moduleResolution": "node",
+		"checkJs": true
 	},
 	"reflection": true
 }

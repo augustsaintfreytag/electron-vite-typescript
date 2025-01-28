@@ -2,7 +2,6 @@
 	"compilerOptions": {
 		"composite": true,
 		"incremental": true,
-		"allowJs": false,
 		"skipLibCheck": true,
 		"esModuleInterop": true,
 		"strict": true,
