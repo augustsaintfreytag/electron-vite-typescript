@@ -2,7 +2,6 @@ import { cast, integer, ReceiveType, serialize, UUID } from "@deepkit/type"
 import { v4 as randomUUID } from "uuid"
 import { makeDemoSavefile } from "~/data/deepkit/savefile-data-provider-deepkit"
 import { Savefile } from "~/data/deepkit/savefile-deepkit"
-import { AbstractSyntaxTree } from "~/data/script/script-tree"
 
 function deserializeModelFromRaw<Type extends CodableObject>(rawObject: object, type?: ReceiveType<Type>): Type | undefined {
 	return cast<Type>(rawObject)
@@ -41,47 +40,7 @@ class PaperclipVendor extends CodableObject {
 	}
 }
 
-export function demo() {
-	const tree: AbstractSyntaxTree = {
-		root: {
-			kind: "root",
-			children: [
-				{
-					kind: "inlineOperator",
-					operator: "define",
-					operatorKind: "prefix",
-					children: [
-						{
-							kind: "inlineOperator",
-							operator: "as",
-							operatorKind: "infix",
-							children: [
-								{ kind: "template", value: "catName" },
-								{
-									kind: "literal",
-									delimited: true,
-									value: "Mable"
-								}
-							]
-						}
-					]
-				},
-				{ kind: "literal", delimited: undefined, value: "My cat is named " },
-				{ kind: "template", value: "catName" },
-				{ kind: "literal", delimited: undefined, value: "." }
-			]
-		}
-	}
-
-	const callback = (tree: AbstractSyntaxTree) => {
-		const encodedObject = serialize<AbstractSyntaxTree>(tree)
-		debugger
-	}
-
-	setTimeout(() => {
-		callback(tree)
-	}, 500)
-}
+export const demo = __1__demo
 
 export function __1__demo() {
 	const vendor = new PaperclipVendor("Millner Eglund", 1991)

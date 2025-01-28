@@ -1,20 +1,8 @@
-import { integer } from "@deepkit/type"
 import { v4 as randomUUID } from "uuid"
-
-export class Savefile {
-	constructor(public numberOfPaperclips: integer, public factories: PaperclipFactory[]) {}
-}
-
-export class PaperclipFactory {
-	constructor(public id: string, public name: string, public productionPerDay: Map<integer, integer>, public tags: Set<string>) {}
-
-	public get averageProductionPerDay(): integer {
-		return Array.from(this.productionPerDay.values()).reduce((sum, production) => sum + production, 0) / this.productionPerDay.size
-	}
-}
+import { PaperclipFactory, Savefile } from "~/data/deepkit/savefile-deepkit"
 
 export function makeDemoSavefile() {
-	const savefile = new Savefile(412_000, [
+	const savefile = new Savefile(randomUUID(), 412_000, [
 		new PaperclipFactory(
 			randomUUID(),
 			"Poland 01",
