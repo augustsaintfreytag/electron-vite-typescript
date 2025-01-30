@@ -1,68 +1,66 @@
-import { AnyZodObject, z } from "zod"
+import { z } from "zod"
+import { SchematicObject, StaticImplements, UUID } from "~/data/zod/codable-object-zod"
 
-type RawObject = object
-type UUID = string
+// function mapEncodingTransform
 
-type ObjectType<T> = new (...args: any[]) => T
-type SchematicObjectType<T> = (new (...args: any[]) => T) & { schema: AnyZodObject }
-type PropertiesObjectType<T, P> = new (properties: P) => T
-type ObjectPropertiesType<T extends ObjectType<CodableObject>> = ConstructorParameters<T>[0]
+// Paperclip Factory
 
-export abstract class CodableObject {
-	static schema: AnyZodObject
+export class PaperclipFactory implements StaticImplements<SchematicObject<PaperclipFactory>, typeof PaperclipFactory> {
+	// Properties
 
-	public get schema(): AnyZodObject {
-		const type = this.constructor as typeof CodableObject
-		return type.schema
+	public id: UUID
+	public name: string
+	public productionPerDay: Map<number, number>
+	public tags: Set<string>
+
+	// Init
+
+	constructor(properties: Pick<PaperclipFactory, "id" | "name" | "productionPerDay" | "tags">) {
+		this.id = properties.id
+		this.name = properties.name
+		this.productionPerDay = properties.productionPerDay
+		this.tags = properties.tags
 	}
+
+	public get averageProductionPerDay(): number {
+		return Array.from(this.productionPerDay.values()).reduce((sum, production) => sum + production, 0) / this.productionPerDay.size
+	}
+
+	// Schema
+
+	public static readonly schema = z.object({
+		id: z.string().uuid(),
+		name: z.string(),
+		productionPerDay: z.map(z.number(), z.number()).transform(value => Array.from(value.entries())),
+		tags: z.set(z.string()).transform(value => Array.from(value.values()))
+	})
 }
 
-type SavefilePropertiesType = ObjectPropertiesType<typeof Savefile>
+// Savefile
 
-export class Savefile extends CodableObject {
+export class Savefile implements StaticImplements<SchematicObject<Savefile>, typeof Savefile> {
 	// Properties
 
 	public id: UUID
 	public playerName: string
 	public numberOfPaperclips?: number
+	public factories: PaperclipFactory[]
 
 	// Init
 
-	constructor(properties: { id: UUID; playerName: string; numberOfPaperclips: number | undefined }) {
-		super()
-
+	constructor(properties: Pick<Savefile, "id" | "playerName" | "numberOfPaperclips" | "factories">) {
 		this.id = properties.id
 		this.playerName = properties.playerName
 		this.numberOfPaperclips = properties.numberOfPaperclips
+		this.factories = properties.factories
 	}
 
 	// Schema
 
-	public static schema = z.object({
+	public static readonly schema = z.object({
 		id: z.string().uuid(),
 		playerName: z.string(),
-		numberOfPaperclips: z.number().int().optional()
+		numberOfPaperclips: z.number().int().optional(),
+		factories: z.array(PaperclipFactory.schema)
 	})
-}
-
-// Logic
-
-export function encodeObject<T extends CodableObject>(object: T): string {
-	const rawObject = object.schema.parse(object)
-	return JSON.stringify(rawObject)
-}
-
-export function decodeObject<T extends CodableObject>(ObjectType: SchematicObjectType<T>, data: string): T {
-	try {
-		// Parse JSON string into a plain object
-		const rawObjectStructure = JSON.parse(data)
-
-		// Validate the parsed data against the schema
-		const rawObject = ObjectType.schema.parse(rawObjectStructure)
-
-		// Instantiate the object with the validated data
-		return new ObjectType(rawObject)
-	} catch (error) {
-		throw new Error(`Failed to decode object: ${error}`)
-	}
 }
