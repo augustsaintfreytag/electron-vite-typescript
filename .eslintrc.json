@@ -19,6 +19,7 @@
 		}
 	},
 	"rules": {
-		"no-debugger": "off"
+		"no-debugger": "off",
+		"@typescript-eslint/no-explicit-any": "off"
 	}
 }
