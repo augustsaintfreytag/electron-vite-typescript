@@ -27,7 +27,10 @@
  * ```
  */
 
-import { demo } from "~/demo-zod"
+import "reflect-metadata"
+import "typescript-core-extensions"
+
+import { demo } from "~/demo-ct"
 import "./index.css"
 
 demo()
